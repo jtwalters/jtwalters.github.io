@@ -6,14 +6,14 @@ jQuery(document).ready(function($) {
     },
     itemTemplate:
       '<li>' +
-      '<a rel="colorbox" href="{{image_b}}" title="{{title}}">' +
+      '<a class="lightly" href="{{image_b}}" title="{{title}}">' +
       '<img src="{{image_s}}" alt="{{title}}" />' +
       '</a>' +
       '</li>'
   }, function(data) {
-    $('#flickr-photos a').colorbox({
-      maxWidth: '95%',
-      maxHeight: '90%'
+    $('#flickr-photos a').lightly({
+      'backgroundColor':'0,0,0',
+			'backgroundOpacity':'0.5'
     });
   });
 });
