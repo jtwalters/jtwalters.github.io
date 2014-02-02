@@ -6,7 +6,7 @@ sharing: false
 footer: true
 ---
 
-## Web Developer, Office of Admissions, University of Washington, 2010–Present
+## Web Developer, University of Washington, 2010–Present
 
 * Replaced prior content management system with a modern, visually pleasing, and accessible Drupal 7 site
 * Implemented a custom responsive web design to enhance user experience and visual impact
