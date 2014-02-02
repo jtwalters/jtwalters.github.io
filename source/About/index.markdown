@@ -51,7 +51,7 @@ Some of my hobbies include photography, racquetball, hiking, billiards, and soap
 - Languages: PHP, JavaScript, HTML(5), CSS(3), Ruby
 - Frameworks/Libraries: jQuery, Drupal 6/7, Sass, Bootstrap
 - Tools: terminal, git, Google Chrome developer tools
-- Systems: OS X, Linux and Unix-like OS, some Windows (primarly for testing)
+- Systems: OS X, Linux and Unix-like OS, some Windows (IE testing)
 
 ### Workflow
 
