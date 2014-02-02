@@ -16,7 +16,7 @@ A recent transplant to the Pacific Northwest, I lived most of my life in Charlot
 
 I have a strong passion for designing and developing for the web. I'm excited about providing great user experiences across the plethora of web-connected devices.
 
-Some of my hobbies include photography, racquetball, hiking, billiards, and soapmaking (yes, like in Fight Club).
+Some of my hobbies include photography, racquetball, hiking, billiards, and soapmaking.
 
 ### Find Me On...
 
