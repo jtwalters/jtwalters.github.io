@@ -12,3 +12,12 @@ ul#flickr-photos li {
   height: 83px;
   margin: 0 15px 15px 0;
 }
+
+.headshot {
+  margin: 1em 0;
+  @media only screen and (min-width: 400px) {
+    float: right;
+    margin: 0 0 0.5em 1.5em;
+    max-width: 33%;
+  }
+}

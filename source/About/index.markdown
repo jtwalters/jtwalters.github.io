@@ -8,9 +8,7 @@ footer: true
 
 ## Hi.
 
-{% img right /images/joel-400x400.jpg 200 200 %}
-
-I'm Joel Walters, a web developer living in Seattle, WA.
+{% img headshot /images/joel-400x400.jpg %} I'm Joel Walters, a web developer living in Seattle, WA.
 
 A recent transplant to the Pacific Northwest, I lived most of my life in Charlotte, NC, and graduated from [UNCC](http://www.uncc.edu) with a degree in Computer Science.
 
