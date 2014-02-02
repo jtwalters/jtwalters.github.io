@@ -1,2 +1,14 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+ul#flickr-photos {
+  padding: 0;
+  @include clearfix;
+}
+
+ul#flickr-photos li {
+  list-style: none;
+  float: left;
+  width: 83px;
+  height: 83px;
+  margin: 0 15px 15px 0;
+}
