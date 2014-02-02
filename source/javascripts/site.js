@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
   $('#flickr-photos').jflickrfeed({
-    limit: 18,
+    limit: 16,
     qstrings: {
       id: '52203464@N07'
     },
