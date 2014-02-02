@@ -7,7 +7,7 @@ require "stringex"
 ssh_user       = "joel@joelwalters.com"
 ssh_port       = "22"
 rsync_delete   = true
-document_root  = "/srv/www/joelwalters.com/"
+document_root  = "/srv/www/joelwalters.com/public"
 rsync_args     = ""  # Any extra arguments to pass to rsync
 deploy_default = "rsync"
 
