@@ -12,12 +12,13 @@ footer: true
 
 My name is Joel Walters. I'm a web developer in my late twenties. Some of my hobbies include photography, racquetball, hiking, billiards, and soapmaking (yes, like in Fight Club).
 
-## Find Me On...
+### Find Me On...
 
 * [Linkedin](http://www.linkedin.com/in/jtwal)
 * [Google+](https://plus.google.com/+JoelWalters)
 * [GitHub](https://github.com/jtwalters)
 * [Drupal.org](https://drupal.org/user/1052318)
+* [Twitter](https://twitter.com/_jtw)
 * [Flickr](http://www.flickr.com/photos/jtw84)
 
 ## Skills and Interests
