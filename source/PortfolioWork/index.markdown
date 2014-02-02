@@ -22,7 +22,7 @@ Link: [admit.washington.edu](http://admit.washington.edu)
 
 ## Webmaster, Acne.org, DanielKern.com, 2004–2010
 
-* Designed and maintained [Acne.org](http://www.acne.org), a skin care website, since 2004.
+* Designed and maintained [Acne.org](http://www.acne.org), a skin care website.
 * Designed and maintained [DanielKern.com](http://www.danielkern.com), an online store which sells skin care products for the Acne.org brand.
 * Responsible for server administration, including: managing user accounts and email accounts, scheduling cron jobs, and installing, upgrading, and troubleshooting server-side applications.
 * Created web-optimized images with Adobe Photoshop.
