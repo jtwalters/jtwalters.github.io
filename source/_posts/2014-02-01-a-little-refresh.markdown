@@ -7,6 +7,7 @@ comments: true
 
 I updated my site with a few new things.
 
+- Updated my About page with current skills, interests, etc.
 - Updated my UW work experience
   - Added a screenshot and link to admit.washington.edu
 - Updated colors and typography! Yay. A bit cleaner.

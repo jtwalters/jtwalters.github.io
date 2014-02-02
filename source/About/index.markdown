@@ -10,14 +10,47 @@ footer: true
 
 {% img right /images/joel-400x400.jpg 200 200 %}
 
-My name is Joel Walters. I'm a well-rounded and experienced web developer, in my late twenties.
+My name is Joel Walters. I'm a web developer in my late twenties. Some of my hobbies include photography, racquetball, hiking, billiards, and soapmaking (yes, like in Fight Club).
 
-Lately, I've been focused on the open-source content management platform called Drupal. I hope to eventually contribute to my favorite Drupal modules (like Views) and to Core.
+## Find Me On...
 
-I'm currently a full time web developer at the University of Washington. Since October 2010, I've been hard at work revamping the website for the Office of Admissions.
+* [Linkedin](http://www.linkedin.com/in/jtwal)
+* [Google+](https://plus.google.com/+JoelWalters)
+* [GitHub](https://github.com/jtwalters)
+* [Flickr](http://www.flickr.com/photos/jtw84)
 
-* [Professional — Linked-In Profile](http://www.linkedin.com/in/jtwal)
-* [Portfolio — work I've completed]({{ root_url }}/PortfolioWork)
+## Skills and Interests
+
+### Technology, etc.
+
+- Semantic, accessible, standards compliant HTML markup
+- Multi-device testing (cross-browser compatibility)
+- Progressive enhancement and graceful degradation
+- Front-end performance; resource optimization
+- Content first; mobile first
+- Progressive disclosure
+- Webfonts (icons)
+- CSS Preprocessing (Sass)
+- Grunt (build tool; automation)
+- Drush (Drupal shell tool)
+- WCAG 2.0 (Web Content Accessibility Guidelines)
+- Drupal/jQuery modules/plugins (reusability)
+- Open Source contributions (GitHub, drupal.org)
+
+### Development Tools
+
+- Source code editors: TextMate, Sublime Text
+- Languages: PHP, JavaScript, HTML(5), CSS(3), Ruby
+- Frameworks/Libraries: jQuery, Drupal 6/7, Sass, Bootstrap
+- Tools: terminal, git, Google Chrome developer tools
+- Systems: OS X, Linux and Unix-like OS, some Windows (primarly for testing)
+
+### Workflow
+
+- Issue/task tracking tool (Asana, Trello, Bitbucket/GitHub)
+- Version control with issue linking
+- Development, Staging, and Production environments for QA
+- Automation of repetitive tasks
 
 ## Contact Me
 
