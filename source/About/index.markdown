@@ -24,12 +24,3 @@ You can <a target="_blank" href="http://www.google.com/recaptcha/mailhide/d?k=01
 
 ## About This Site
 This site is powered by Octopress (a static site generator using Jekyll). It was powered by Drupal, but that was overkill for a blog. :)
-
-<p about=""
-     resource="http://www.w3.org/TR/rdfa-syntax"
-     rel="dc:conformsTo" xmlns:dc="http://purl.org/dc/terms/">
-    <a href="http://validator.w3.org/check?uri=referer"><img
-        src="http://www.w3.org/Icons/valid-xhtml-rdfa"
-        alt="Valid XHTML + RDFa" height="31" width="88" /></a>
-</p>
-
