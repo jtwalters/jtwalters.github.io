@@ -6,11 +6,17 @@ sharing: true
 footer: true
 ---
 
-## About Me
+## Hi.
 
 {% img right /images/joel-400x400.jpg 200 200 %}
 
-My name is Joel Walters. I'm a web developer in my late twenties. Some of my hobbies include photography, racquetball, hiking, billiards, and soapmaking (yes, like in Fight Club).
+I'm Joel Walters, a web developer living in Seattle, WA.
+
+A recent transplant to the Pacific Northwest, I lived most of my life in Charlotte, NC, and graduated from [UNCC](http://www.uncc.edu) with a degree in Computer Science.
+
+I have a strong passion for designing and developing for the web. I'm excited about providing great user experiences across the plethora of web-connected devices.
+
+Some of my hobbies include photography, racquetball, hiking, billiards, and soapmaking (yes, like in Fight Club).
 
 ### Find Me On...
 
