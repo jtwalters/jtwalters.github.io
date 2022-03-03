@@ -14,7 +14,7 @@ A recent transplant to the Pacific Northwest, I lived most of my life in Charlot
 
 I have a strong passion for designing and developing for the web. I'm excited about providing great user experiences across the plethora of web-connected devices.
 
-Some of my hobbies include photography, racquetball, hiking, billiards, and soapmaking.
+Some of my hobbies include running, cycling, hiking, billiards, photography, and soapmaking. Running is very addictive, I've found.
 
 ### Find Me On...
 
@@ -24,6 +24,11 @@ Some of my hobbies include photography, racquetball, hiking, billiards, and soap
 * [Drupal.org](https://drupal.org/user/1052318)
 * [Twitter](https://twitter.com/_jtw)
 * [Flickr](http://www.flickr.com/photos/jtw84)
+
+<a style="display:inline-block;background-color:#FC4C02;color:#fff;padding:5px 10px 5px 30px;font-size:11px;font-family:Helvetica, Arial, sans-serif;white-space:nowrap;text-decoration:none;background-repeat:no-repeat;background-position:10px center;border-radius:3px;background-image:url('http://badges.strava.com/logo-strava-echelon.png')" href='http://strava.com/athletes/6268298/badge' target="_clean">
+Follow me on
+<img src='http://badges.strava.com/logo-strava.png' alt='Strava' style='margin-left:2px;vertical-align:text-bottom' height=13 width=51 />
+</a>
 
 ## Skills and Interests
 
