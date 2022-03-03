@@ -9,10 +9,10 @@ ssh_port       = "22"
 rsync_delete   = true
 document_root  = "/srv/www/joelwalters.com/public"
 rsync_args     = ""  # Any extra arguments to pass to rsync
-deploy_default = "rsync"
+deploy_default = "push"
 
 # This will be configured for you when you run config_deploy
-deploy_branch  = "gh-pages"
+deploy_branch  = "master"
 
 ## -- Misc Configs -- ##
 
