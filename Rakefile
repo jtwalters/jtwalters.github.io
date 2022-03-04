@@ -2,11 +2,12 @@ require "rubygems"
 require "bundler/setup"
 require "stringex"
 
+
 # This will be configured for you when you run config_deploy
-deploy_branch  = "master"
+deploy_branch  = "gh-pages"
+deploy_default = "push"
 
 ## -- Misc Configs -- ##
-
 public_dir      = "public"    # compiled site directory
 source_dir      = "source"    # source file directory
 blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
