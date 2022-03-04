@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>CSS Image Replacement - Joel Walters</title>
+  <meta name="author" content="Joel Walters">
+
+  
+  <meta name="description" content="If you aren&rsquo;t familiar with the CSS jargon &ldquo;image replacement&rdquo;, it is essentially a way to replace an h1 heading—or other text- &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jtwalters.github.io/blog/2011/05/css-image-replacement">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Joel Walters" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+  <!-- custom css/js -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/lightly.css" rel="stylesheet" type="text/css">
+  <script src="/javascripts/jquery.lightly.js" type="text/javascript"></script>
+  <script src="/javascripts/jflickrfeed.js" type="text/javascript"></script>
+  <script src="/javascripts/site.js" type="text/javascript"></script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23192793-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Joel Walters</a></h1>
+  
+    <h2>Hello! Thanks for stopping by.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jtwalters.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/work/">Work</a></li>
+  <li><a href="/photos/">Photos</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">CSS Image Replacement</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-11T18:53:00-07:00" pubdate data-updated="true">May 11<span>th</span>, 2011</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://jtwalters.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>If you aren&rsquo;t familiar with the CSS jargon &ldquo;image replacement&rdquo;, it is essentially a way to replace an <code>h1</code> heading—or other text-based content—with an image or company logo. This way you can have a fancy graphic instead of plain text, and maintain accessibility and SEO benefits.</p>
+
+<p>There are many <a href="http://css-tricks.com/css-image-replacement/">CSS image replacement techniques</a> out there. Notably, the FIR or &ldquo;Fahrner Image Replacement&rdquo; technique is among the most popular. However, this method is <a href="http://www.alistapart.com/articles/fir/">not deemed accessible</a>.</p>
+
+<p>The goal of image replacement techniques is to be compatible with the most possible browser (user agent) configurations and to be accessible. This means we want to support browsers with a 1% or greater market share in various configurations (e.g. CSS on/off, images on/off), as well as screen readers and other assistive technologies.</p>
+
+<p>My <a href="http://alicious.com/2009/new-css-image-replacement-jir/">personal preference for image replacement</a> involves using an <code>a</code> (anchor tag) inside an <code>h1</code> or other block element. It is called the &ldquo;LLJ&rdquo; method, and it should work on all major browsers, including IE6+.</p>
+
+<p>Below is the HTML/CSS to implement this technique. It&rsquo;s also hosted <a href="http://jsfiddle.net/jtwalters/gJAjY/1/">on jsfiddle</a>.</p>
+
+<p><strong>HTML:</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://example.com&quot;</span> <span class="na">title=</span><span class="s">&quot;example title&quot;</span><span class="nt">&gt;</span>Meaningful Text<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'><span class="nt">&lt;/h1&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>CSS:</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">h1</span><span class="nf">#title</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>  <span class="c">/* allows child element to be placed positioned wrt this one */</span>
+</span><span class='line'>  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>           <span class="c">/* adjust margin as needed */</span>
+</span><span class='line'>  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>          <span class="c">/* needed to counter the reset/default styles */</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>        <span class="c">/* height of replacement image */</span>
+</span><span class='line'>  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>    <span class="c">/* hide the text */</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">h1</span><span class="nf">#title</span> <span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>  <span class="c">/* defaults to top:0, left:0 and so these can be left out */</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>           <span class="c">/* force 0 height */</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>         <span class="c">/* width of parent */</span>
+</span><span class='line'>  <span class="k">padding-top</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>   <span class="c">/* match height of h1#title above */</span>
+</span><span class='line'>  <span class="k">background</span><span class="o">:</span> <span class="sx">url(replacement-image.png)</span> <span class="k">top</span> <span class="k">left</span> <span class="k">no-repeat</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Joel Walters</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-11T18:53:00-07:00" pubdate data-updated="true">May 11<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/accessibility/'>accessibility</a>, <a class='category' href='/blog/categories/seo/'>seo</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/05/secure-remote-backup-using-duplicity/" title="Next Post: Secure Remote Backup Using Duplicity">Secure Remote Backup Using Duplicity &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/mailcheck-for-drupal/">Mailcheck for Drupal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/a-little-refresh/">A Little Refresh</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/a-12-dot-5-megapixel-display/">A 12.5 Megapixel Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/my-password-generator-based-off-an-xkcd-comic/">My Password Generator, Based on a Comic</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets/">PosteRazor ... Posters From Letter Sized Sheets</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jtwalters">@jtwalters</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jtwalters',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2022 - Joel Walters -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'joelwalters';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jtwalters.github.io/blog/2011/05/css-image-replacement/';
+        var disqus_url = 'http://jtwalters.github.io/blog/2011/05/css-image-replacement/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

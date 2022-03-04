@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Secure Remote Backup Using Duplicity - Joel Walters</title>
+  <meta name="author" content="Joel Walters">
+
+  
+  <meta name="description" content="Duplicity is a robust, easy to use, backup and restore utility which uses gpg for encryption. Its flexibility allows backing up with Amazon&rsquo;s &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jtwalters.github.io/blog/2011/05/secure-remote-backup-using-duplicity">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Joel Walters" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+  <!-- custom css/js -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/lightly.css" rel="stylesheet" type="text/css">
+  <script src="/javascripts/jquery.lightly.js" type="text/javascript"></script>
+  <script src="/javascripts/jflickrfeed.js" type="text/javascript"></script>
+  <script src="/javascripts/site.js" type="text/javascript"></script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23192793-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Joel Walters</a></h1>
+  
+    <h2>Hello! Thanks for stopping by.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jtwalters.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/work/">Work</a></li>
+  <li><a href="/photos/">Photos</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Secure Remote Backup Using Duplicity</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-15T18:53:00-07:00" pubdate data-updated="true">May 15<span>th</span>, 2011</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://jtwalters.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://duplicity.nongnu.org/">Duplicity</a> is a robust, easy to use, backup and restore utility which uses <a href="http://www.gnupg.org/">gpg</a> for encryption. Its flexibility allows backing up with <a href="http://aws.amazon.com/s3/">Amazon&rsquo;s S3 service</a>, a highly durable storage infrastructure designed for mission-critical data storage. In this article, I&rsquo;ll explain how to use Duplicity to create secure, incremental, remote backups with Amazon&rsquo;s S3 service.</p>
+
+<h2>Duplicity in a Nutshell</h2>
+
+<p>Duplicity&hellip;</p>
+
+<ul>
+<li>is an <strong>easy to use</strong> backup and restore command line utility</li>
+<li><strong>supports encryption and signing</strong> of archives using gpg</li>
+<li>is <strong>bandwidth and space efficient</strong>
+
+<ul>
+<li>uses <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> to transfer only the modified parts of files, with support for binary files</li>
+</ul>
+</li>
+<li>uses a <strong>standard file format</strong> (gnu tar and rdiff incrementals)</li>
+<li><strong>supports multiple protocols</strong> including local storage, scp/ssh, ftp, rsync, and Amazon S3</li>
+</ul>
+
+
+<p>See <a href="http://duplicity.nongnu.org/features.html">full list of features</a> and <a href="http://duplicity.nongnu.org/docs.html">documentation</a></p>
+
+<h2>Getting Started With Duplicity—Quick Guide and Examples</h2>
+
+<h3>Downloading and Installing Duplicity</h3>
+
+<p><a href="http://duplicity.nongnu.org/">Duplicity</a> has several requirements so you may want to use a package manager to install.</p>
+
+<h4>MacPorts Installation:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo port install duplicity</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Ubuntu packages:</h4>
+
+<p>You should install the <code>duplicity</code> package along with <code>python-boto</code> for S3 support.</p>
+
+<h3>Trying Out Duplicity</h3>
+
+<p>You can try out a simple Duplicity backup locally by running:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>duplicity &lt;source-directory> file://&lt;destination-directory></span></code></pre></td></tr></table></div></figure>
+
+
+<p>See <a href="http://duplicity.nongnu.org/docs.html">more examples</a>.</p>
+
+<p>After you&rsquo;ve succesfully created your first backup, you should see some backup statistics including the total count and file size of new or modified files.</p>
+
+<h3>Creating a GPG Key For Encryption</h3>
+
+<p>To encrypt your backup, you will first need to create a gpg key. You can create a key for use only with Duplicity, which will protect your files from being viewed in transit or in remote storage (e.g. Amazon&rsquo;s servers).</p>
+
+<p>Run <code>gpg --gen-key</code> in your shell.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#~ gpg --gen-key
+</span><span class='line'>gpg (GnuPG) 1.4.11; Copyright (C) 2010 Free Software Foundation, Inc.
+</span><span class='line'>This is free software: you are free to change and redistribute it.
+</span><span class='line'>There is NO WARRANTY, to the extent permitted by law.
+</span><span class='line'>
+</span><span class='line'>Please select what kind of key you want:
+</span><span class='line'>   (1) RSA and RSA (default)
+</span><span class='line'>   (2) DSA and Elgamal
+</span><span class='line'>   (3) DSA (sign only)
+</span><span class='line'>   (4) RSA (sign only)
+</span><span class='line'>Your selection?</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Choose kind of key, keysize, and expiration. I used the defaults.</li>
+<li>Enter a &ldquo;Real Name&rdquo; (e.g. Duplicity Backup), email address and comment, then <code>O(kay)</code> to continue with key generation.</li>
+<li>Enter a passphrase to protect your private key (this should be sufficiently long and difficult to guess). A passphrase may contain spaces.</li>
+<li>At this point, the key will be generated. On a remote host, you may have trouble generating enough random entropy. In this case, you might want to run some <code>find</code> commands or something to generate random data. It can take a minute or so for this step to complete.</li>
+<li>After key generation, note the key identifier for use with Duplicity.
+
+<ul>
+<li>The key identifier is an 8-digit hexadecimal number (e.g. D7E2BEC8). It&rsquo;s displayed on a line beginning with <code>pub</code>, after the <code>/</code>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Signing Up With Amazon S3</h3>
+
+<p><a href="http://aws.amazon.com/s3/">Amazon S3</a> is a fast and reliable storage system which can be used along with Duplicity. It is relatively inexpensive, costing $0.10 per GB uploaded, $0.15 per GB downloaded, and $0.14 per GB-month storage. It&rsquo;s designed to provide 99.999999999% durability and 99.99% availability (of objects over a given year).</p>
+
+<p><a href="http://aws.amazon.com/">Sign up for Amazon Web Services</a> (AWS) and Simple Storage Service (S3). You&rsquo;ll need to use your S3 security credentials with Duplicity, so be sure to copy down your <strong>Access Key ID</strong> and <strong>Secret Access Key</strong>.</p>
+
+<h3>Creating a Duplicity Backup Script</h3>
+
+<p>You can use this bash script template to get started. Use your Amazon S3 security credentials, and the gpg passphrase and key identifier from the section above.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="nb">ulimit</span> -n 1024 <span class="c"># I needed this to increase the maximum number of open files on OS X 10.5</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your Amazon S3 security credentials</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your gpg passphrase (needed to sign files with duplicity)</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your gpg key identifier (8-digit hexadecimal number)</span>
+</span><span class='line'><span class="nv">GPG_KEY</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># backup source directory. if you set this to / (root), be sure to exclude /tmp, /proc, /dev, and probably /sys too</span>
+</span><span class='line'><span class="nv">SOURCE</span><span class="o">=</span><span class="s2">&quot;/Users/Example&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># destination URL (Amazon S3 bucket)</span>
+</span><span class='line'><span class="c"># Note: bucket need not exist but does need to be unique among all Amazon S3 users.</span>
+</span><span class='line'><span class="nv">DEST</span><span class="o">=</span><span class="s2">&quot;s3+http://your_unique_bucket_name&quot;</span>
+</span><span class='line'>
+</span><span class='line'>duplicity <span class="se">\</span>
+</span><span class='line'>  --verbosity 4 <span class="se">\ </span><span class="c"># default verbosity. use 5 to see added/changed files, 0 for silence</span>
+</span><span class='line'>  --full-if-older-than 30D <span class="se">\ </span><span class="c"># option to create a new full backup after X days</span>
+</span><span class='line'>  --encrypt-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  --sign-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  --s3-use-new-style <span class="se">\</span>
+</span><span class='line'>  --s3-use-rrs <span class="se">\ </span><span class="c"># reduced redundancy storage option. use for less important backups. provides cheaper rates.</span>
+</span><span class='line'>  --exclude<span class="o">=</span>/Users/Example/Junk <span class="se">\ </span><span class="c"># exclude a path (uses shell globbing)</span>
+</span><span class='line'>  --exclude<span class="o">=</span>/Users/Example/Downloads <span class="se">\ </span><span class="c"># supports multiple exclude switches</span>
+</span><span class='line'>  <span class="k">${</span><span class="nv">SOURCE</span><span class="k">}</span> <span class="k">${</span><span class="nv">DEST</span><span class="k">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># reset the environment variables</span>
+</span><span class='line'><span class="nb">unset </span>AWS_ACCESS_KEY_ID
+</span><span class='line'><span class="nb">unset </span>AWS_SECRET_ACCESS_KEY
+</span><span class='line'><span class="nb">unset </span>PASSPHRASE
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Automating Your Duplicity Backup Script With Cron</h3>
+
+<p>Edit your crontab:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>crontab -e</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I perform a daily incremental backup early in the morning. My crontab entry looks like:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>0 6 * * * bash -l -c 'duplicity-backup'</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Note:</strong> This would run the wrapper script daily at 6:00 AM. I use <code>bash -l -c &lt;command&gt;</code> to load up an environment very similar to an interactive shell session, so my PATH is set properly. The -c option tells bash a command follows. The -l option tells bash to load the entire environment.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Cron">More about cron</a>.</p>
+
+<h3>Creating a Duplicity Restore Script</h3>
+
+<p>Below is an example restore wrapper script I use.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># requires argument: relative (not absolute) path of files to restore (e.g. Documents)</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$1&quot;</span> <span class="o">]</span>
+</span><span class='line'><span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Need restore source path argument&quot;</span>
+</span><span class='line'>  <span class="nb">exit</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">ulimit</span> -n 1024 <span class="c"># I needed this to increase the maximum number of open files on OS X 10.5</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your Amazon S3 security credentials</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your gpg passphrase (needed to sign files with duplicity)</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your gpg key identifier (8-digit hexadecimal number)</span>
+</span><span class='line'><span class="nv">GPG_KEY</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># source URL (Amazon S3 bucket holding your Duplicity backup)</span>
+</span><span class='line'><span class="nv">SOURCE_URL</span><span class="o">=</span><span class="s2">&quot;s3+http://bucket_name&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># destination directory</span>
+</span><span class='line'><span class="nv">DEST_DIR</span><span class="o">=</span><span class="s2">&quot;/Users/example/restore&quot;</span>
+</span><span class='line'>
+</span><span class='line'>mkdir -p <span class="nv">$DEST_DIR</span> <span class="c"># create the destination directory if it doesn&#39;t exist</span>
+</span><span class='line'>
+</span><span class='line'>duplicity <span class="se">\</span>
+</span><span class='line'>  --encrypt-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  --sign-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  --file-to-restore <span class="s2">&quot;$1&quot;</span> <span class="se">\</span>
+</span><span class='line'>  <span class="k">${</span><span class="nv">SOURCE_URL</span><span class="k">}</span> <span class="k">${</span><span class="nv">DEST_DIR</span><span class="k">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># reset the environment variables</span>
+</span><span class='line'><span class="nb">unset </span>AWS_ACCESS_KEY_ID
+</span><span class='line'><span class="nb">unset </span>AWS_SECRET_ACCESS_KEY
+</span><span class='line'><span class="nb">unset </span>PASSPHRASE
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Conclusion</h3>
+
+<p>That should get you started with creating your own secure, incremental, remote backups. Please reply if you&rsquo;ve tried the examples above and report your success or failure. Thanks!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Joel Walters</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-15T18:53:00-07:00" pubdate data-updated="true">May 15<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/backup/'>backup</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/05/css-image-replacement/" title="Previous Post: CSS Image Replacement">&laquo; CSS Image Replacement</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/07/mac-os-lion-upgrade-login-issue/" title="Next Post: Mac OS Lion Upgrade — Login Issue">Mac OS Lion Upgrade — Login Issue &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/mailcheck-for-drupal/">Mailcheck for Drupal</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/a-little-refresh/">A Little Refresh</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/a-12-dot-5-megapixel-display/">A 12.5 Megapixel Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/my-password-generator-based-off-an-xkcd-comic/">My Password Generator, Based on a Comic</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets/">PosteRazor ... Posters From Letter Sized Sheets</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jtwalters">@jtwalters</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jtwalters',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2022 - Joel Walters -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'joelwalters';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jtwalters.github.io/blog/2011/05/secure-remote-backup-using-duplicity/';
+        var disqus_url = 'http://jtwalters.github.io/blog/2011/05/secure-remote-backup-using-duplicity/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

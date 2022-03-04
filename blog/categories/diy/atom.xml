@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: diy | Joel Walters]]></title>
+  <link href="http://jtwalters.github.io/blog/categories/diy/atom.xml" rel="self"/>
+  <link href="http://jtwalters.github.io/"/>
+  <updated>2022-03-03T16:10:51-08:00</updated>
+  <id>http://jtwalters.github.io/</id>
+  <author>
+    <name><![CDATA[Joel Walters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[PosteRazor ... Posters from letter sized sheets]]></title>
+    <link href="http://jtwalters.github.io/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets/"/>
+    <updated>2013-01-09T18:42:00-08:00</updated>
+    <id>http://jtwalters.github.io/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets</id>
+    <content type="html"><![CDATA[<p><a href="http://posterazor.sourceforge.net/">PosteRazor</a> must be the greatest thing since sliced bread.</p>
+
+<p><blockquote><p>The PosteRazor cuts a raster image into pieces which can afterwards be printed out and assembled to a poster.</p><footer><strong>posterazor homepage</strong> <cite>posterazor.sourceforge.net</cite></footer></blockquote></p>
+
+<p>Yep, that&rsquo;s right, you can assemble a poster from copy paper on the cheap. But &ldquo;how can I avoid the ugliness of scotch tape and paper curl?&rdquo; you might ask. Good question!</p>
+
+<p>I found <a href="http://www.onlinelabels.com/OL813.htm">8.5x14 legal sized sheets with removable adhesive backing</a> from onlinelabels.com which would let you slap your paper right onto the painted wall surface — no tape, no curling. Woohoo!</p>
+]]></content>
+  </entry>
+  
+</feed>

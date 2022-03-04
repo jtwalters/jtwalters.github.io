@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: backup | Joel Walters]]></title>
+  <link href="http://jtwalters.github.io/blog/categories/backup/atom.xml" rel="self"/>
+  <link href="http://jtwalters.github.io/"/>
+  <updated>2022-03-03T16:10:51-08:00</updated>
+  <id>http://jtwalters.github.io/</id>
+  <author>
+    <name><![CDATA[Joel Walters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Secure Remote Backup Using Duplicity]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/05/secure-remote-backup-using-duplicity/"/>
+    <updated>2011-05-15T18:53:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/05/secure-remote-backup-using-duplicity</id>
+    <content type="html"><![CDATA[<p><a href="http://duplicity.nongnu.org/">Duplicity</a> is a robust, easy to use, backup and restore utility which uses <a href="http://www.gnupg.org/">gpg</a> for encryption. Its flexibility allows backing up with <a href="http://aws.amazon.com/s3/">Amazon&rsquo;s S3 service</a>, a highly durable storage infrastructure designed for mission-critical data storage. In this article, I&rsquo;ll explain how to use Duplicity to create secure, incremental, remote backups with Amazon&rsquo;s S3 service.</p>
+
+<h2>Duplicity in a Nutshell</h2>
+
+<p>Duplicity&hellip;</p>
+
+<ul>
+<li>is an <strong>easy to use</strong> backup and restore command line utility</li>
+<li><strong>supports encryption and signing</strong> of archives using gpg</li>
+<li>is <strong>bandwidth and space efficient</strong>
+
+<ul>
+<li>uses <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> to transfer only the modified parts of files, with support for binary files</li>
+</ul>
+</li>
+<li>uses a <strong>standard file format</strong> (gnu tar and rdiff incrementals)</li>
+<li><strong>supports multiple protocols</strong> including local storage, scp/ssh, ftp, rsync, and Amazon S3</li>
+</ul>
+
+
+<p>See <a href="http://duplicity.nongnu.org/features.html">full list of features</a> and <a href="http://duplicity.nongnu.org/docs.html">documentation</a></p>
+
+<h2>Getting Started With Duplicity—Quick Guide and Examples</h2>
+
+<h3>Downloading and Installing Duplicity</h3>
+
+<p><a href="http://duplicity.nongnu.org/">Duplicity</a> has several requirements so you may want to use a package manager to install.</p>
+
+<h4>MacPorts Installation:</h4>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo port install duplicity</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>Ubuntu packages:</h4>
+
+<p>You should install the <code>duplicity</code> package along with <code>python-boto</code> for S3 support.</p>
+
+<h3>Trying Out Duplicity</h3>
+
+<p>You can try out a simple Duplicity backup locally by running:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>duplicity &lt;source-directory> file://&lt;destination-directory></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>See <a href="http://duplicity.nongnu.org/docs.html">more examples</a>.</p>
+
+<p>After you&rsquo;ve succesfully created your first backup, you should see some backup statistics including the total count and file size of new or modified files.</p>
+
+<h3>Creating a GPG Key For Encryption</h3>
+
+<p>To encrypt your backup, you will first need to create a gpg key. You can create a key for use only with Duplicity, which will protect your files from being viewed in transit or in remote storage (e.g. Amazon&rsquo;s servers).</p>
+
+<p>Run <code>gpg --gen-key</code> in your shell.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>~ gpg &mdash;gen-key&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>gpg (GnuPG) 1.4.11; Copyright &copy; 2010 Free Software Foundation, Inc.
+</span><span class='line'>This is free software: you are free to change and redistribute it.
+</span><span class='line'>There is NO WARRANTY, to the extent permitted by law.&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Please select what kind of key you want:
+</span><span class='line'>   (1) RSA and RSA (default)
+</span><span class='line'>   (2) DSA and Elgamal
+</span><span class='line'>   (3) DSA (sign only)
+</span><span class='line'>   (4) RSA (sign only)
+</span><span class='line'>Your selection?</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<ul>
+<li>Choose kind of key, keysize, and expiration. I used the defaults.</li>
+<li>Enter a &ldquo;Real Name&rdquo; (e.g. Duplicity Backup), email address and comment, then <code>O(kay)</code> to continue with key generation.</li>
+<li>Enter a passphrase to protect your private key (this should be sufficiently long and difficult to guess). A passphrase may contain spaces.</li>
+<li>At this point, the key will be generated. On a remote host, you may have trouble generating enough random entropy. In this case, you might want to run some <code>find</code> commands or something to generate random data. It can take a minute or so for this step to complete.</li>
+<li>After key generation, note the key identifier for use with Duplicity.
+
+<ul>
+<li>The key identifier is an 8-digit hexadecimal number (e.g. D7E2BEC8). It&rsquo;s displayed on a line beginning with <code>pub</code>, after the <code>/</code>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Signing Up With Amazon S3</h3>
+
+<p><a href="http://aws.amazon.com/s3/">Amazon S3</a> is a fast and reliable storage system which can be used along with Duplicity. It is relatively inexpensive, costing $0.10 per GB uploaded, $0.15 per GB downloaded, and $0.14 per GB-month storage. It&rsquo;s designed to provide 99.999999999% durability and 99.99% availability (of objects over a given year).</p>
+
+<p><a href="http://aws.amazon.com/">Sign up for Amazon Web Services</a> (AWS) and Simple Storage Service (S3). You&rsquo;ll need to use your S3 security credentials with Duplicity, so be sure to copy down your <strong>Access Key ID</strong> and <strong>Secret Access Key</strong>.</p>
+
+<h3>Creating a Duplicity Backup Script</h3>
+
+<p>You can use this bash script template to get started. Use your Amazon S3 security credentials, and the gpg passphrase and key identifier from the section above.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;ulimit -n 1024 <span class="c"># I needed this to increase the maximum number of open files on OS X 10.5&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;your Amazon S3 security credentials&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;export <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>&amp;ldquo;XXXXXXXXXXXXXXXXXXXX&amp;rdquo;
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>&amp;ldquo;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;your gpg passphrase <span class="o">(</span>needed to sign files with duplicity<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;export <span class="nv">PASSPHRASE</span><span class="o">=</span>&amp;ldquo;XXXXXXXX&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;your gpg key identifier <span class="o">(</span>8-digit hexadecimal number<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;GPG_KEY<span class="o">=</span>&amp;ldquo;XXXXXXXX&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;backup <span class="nb">source </span>directory. <span class="k">if </span>you <span class="nb">set </span>this to / <span class="o">(</span>root<span class="o">)</span>, be sure to exclude /tmp, /proc, /dev, and probably /sys too&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;SOURCE<span class="o">=</span>&amp;ldquo;/Users/Example&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;destination URL <span class="o">(</span>Amazon S3 bucket<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;Note: bucket need not exist but does need to be unique among all Amazon S3 users.&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;DEST<span class="o">=</span>&amp;ldquo;s3+&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://your_unique_bucket_name&quot;</span>&gt;http://your_unique_bucket_name&lt;/a&gt;&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;duplicity <span class="se">\</span>
+</span><span class='line'>  &amp;mdash;verbosity 4 <span class="se">\ </span><span class="c"># default verbosity. use 5 to see added/changed files, 0 for silence</span>
+</span><span class='line'>  &amp;mdash;full-if-older-than 30D <span class="se">\ </span><span class="c"># option to create a new full backup after X days</span>
+</span><span class='line'>  &amp;mdash;encrypt-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  &amp;mdash;sign-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  &amp;mdash;s3-use-new-style <span class="se">\</span>
+</span><span class='line'>  &amp;mdash;s3-use-rrs <span class="se">\ </span><span class="c"># reduced redundancy storage option. use for less important backups. provides cheaper rates.</span>
+</span><span class='line'>  &amp;mdash;exclude<span class="o">=</span>/Users/Example/Junk <span class="se">\ </span><span class="c"># exclude a path (uses shell globbing)</span>
+</span><span class='line'>  &amp;mdash;exclude<span class="o">=</span>/Users/Example/Downloads <span class="se">\ </span><span class="c"># supports multiple exclude switches</span>
+</span><span class='line'>  <span class="k">${</span><span class="nv">SOURCE</span><span class="k">}</span> <span class="k">${</span><span class="nv">DEST</span><span class="k">}</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;reset the environment variables&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;unset AWS_ACCESS_KEY_ID
+</span><span class='line'><span class="nb">unset </span>AWS_SECRET_ACCESS_KEY
+</span><span class='line'><span class="nb">unset </span>PASSPHRASE
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Automating Your Duplicity Backup Script With Cron</h3>
+
+<p>Edit your crontab:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>crontab -e</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I perform a daily incremental backup early in the morning. My crontab entry looks like:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>0 6 * * * bash -l -c &lsquo;duplicity-backup&rsquo;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><strong>Note:</strong> This would run the wrapper script daily at 6:00 AM. I use <code>bash -l -c &lt;command&gt;</code> to load up an environment very similar to an interactive shell session, so my PATH is set properly. The -c option tells bash a command follows. The -l option tells bash to load the entire environment.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Cron">More about cron</a>.</p>
+
+<h3>Creating a Duplicity Restore Script</h3>
+
+<p>Below is an example restore wrapper script I use.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;requires argument: relative <span class="o">(</span>not absolute<span class="o">)</span> path of files to restore <span class="o">(</span>e.g. Documents<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;if <span class="o">[</span> -z &amp;ldquo;<span class="nv">$1</span>&amp;rdquo; <span class="o">]</span>
+</span><span class='line'><span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> &amp;ldquo;Need restore <span class="nb">source </span>path argument&amp;rdquo;
+</span><span class='line'>  <span class="nb">exit</span>
+</span><span class='line'><span class="k">fi</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;ulimit -n 1024 <span class="c"># I needed this to increase the maximum number of open files on OS X 10.5&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;your Amazon S3 security credentials&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;export <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>&amp;ldquo;XXXXXXXXXXXXXXXXXXXX&amp;rdquo;
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>&amp;ldquo;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;your gpg passphrase <span class="o">(</span>needed to sign files with duplicity<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;export <span class="nv">PASSPHRASE</span><span class="o">=</span>&amp;ldquo;XXXXXXXX&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;your gpg key identifier <span class="o">(</span>8-digit hexadecimal number<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;GPG_KEY<span class="o">=</span>&amp;ldquo;XXXXXXXX&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;source URL <span class="o">(</span>Amazon S3 bucket holding your Duplicity backup<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;SOURCE_URL<span class="o">=</span>&amp;ldquo;s3+&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://bucket_name&quot;</span>&gt;http://bucket_name&lt;/a&gt;&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;destination directory&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;DEST_DIR<span class="o">=</span>&amp;ldquo;/Users/example/restore&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;mkdir -p <span class="nv">$DEST_DIR</span> <span class="c"># create the destination directory if it doesn&amp;rsquo;t exist&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;duplicity <span class="se">\</span>
+</span><span class='line'>  &amp;mdash;encrypt-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  &amp;mdash;sign-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  &amp;mdash;file-to-restore &amp;ldquo;<span class="nv">$1</span>&amp;rdquo; <span class="se">\</span>
+</span><span class='line'>  <span class="k">${</span><span class="nv">SOURCE_URL</span><span class="k">}</span> <span class="k">${</span><span class="nv">DEST_DIR</span><span class="k">}</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;reset the environment variables&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;unset AWS_ACCESS_KEY_ID
+</span><span class='line'><span class="nb">unset </span>AWS_SECRET_ACCESS_KEY
+</span><span class='line'><span class="nb">unset </span>PASSPHRASE
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Conclusion</h3>
+
+<p>That should get you started with creating your own secure, incremental, remote backups. Please reply if you&rsquo;ve tried the examples above and report your success or failure. Thanks!</p>
+]]></content>
+  </entry>
+  
+</feed>

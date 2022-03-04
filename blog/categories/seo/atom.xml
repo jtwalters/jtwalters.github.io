@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: seo | Joel Walters]]></title>
+  <link href="http://jtwalters.github.io/blog/categories/seo/atom.xml" rel="self"/>
+  <link href="http://jtwalters.github.io/"/>
+  <updated>2022-03-03T16:10:51-08:00</updated>
+  <id>http://jtwalters.github.io/</id>
+  <author>
+    <name><![CDATA[Joel Walters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[CSS Image Replacement]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/05/css-image-replacement/"/>
+    <updated>2011-05-11T18:53:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/05/css-image-replacement</id>
+    <content type="html"><![CDATA[<p>If you aren&rsquo;t familiar with the CSS jargon &ldquo;image replacement&rdquo;, it is essentially a way to replace an <code>h1</code> heading—or other text-based content—with an image or company logo. This way you can have a fancy graphic instead of plain text, and maintain accessibility and SEO benefits.</p>
+
+<p>There are many <a href="http://css-tricks.com/css-image-replacement/">CSS image replacement techniques</a> out there. Notably, the FIR or &ldquo;Fahrner Image Replacement&rdquo; technique is among the most popular. However, this method is <a href="http://www.alistapart.com/articles/fir/">not deemed accessible</a>.</p>
+
+<p>The goal of image replacement techniques is to be compatible with the most possible browser (user agent) configurations and to be accessible. This means we want to support browsers with a 1% or greater market share in various configurations (e.g. CSS on/off, images on/off), as well as screen readers and other assistive technologies.</p>
+
+<p>My <a href="http://alicious.com/2009/new-css-image-replacement-jir/">personal preference for image replacement</a> involves using an <code>a</code> (anchor tag) inside an <code>h1</code> or other block element. It is called the &ldquo;LLJ&rdquo; method, and it should work on all major browsers, including IE6+.</p>
+
+<p>Below is the HTML/CSS to implement this technique. It&rsquo;s also hosted <a href="http://jsfiddle.net/jtwalters/gJAjY/1/">on jsfiddle</a>.</p>
+
+<p><strong>HTML:</strong>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://example.com&quot;</span> <span class="na">title=</span><span class="s">&quot;example title&quot;</span><span class="nt">&gt;</span>Meaningful Text<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'><span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><strong>CSS:</strong>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">h1</span><span class="nf">#title</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>  <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">allows</span> <span class="n">child</span> <span class="n">element</span> <span class="n">to</span> <span class="n">be</span> <span class="n">placed</span> <span class="n">positioned</span> <span class="n">wrt</span> <span class="n">this</span> <span class="n">one</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>           <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">adjust</span> <span class="k">margin</span> <span class="n">as</span> <span class="n">needed</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>          <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">needed</span> <span class="n">to</span> <span class="n">counter</span> <span class="n">the</span> <span class="n">reset</span><span class="o">/</span><span class="k">default</span> <span class="n">styles</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>        <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="k">height</span> <span class="n">of</span> <span class="n">replacement</span> <span class="n">image</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>    <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="k">hide</span> <span class="n">the</span> <span class="k">text</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'><span class="p">}</span><span class="o">&lt;/</span><span class="nt">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nt">p</span><span class="o">&gt;</span><span class="nt">h1</span><span class="nf">#title</span> <span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>  <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">defaults</span> <span class="n">to</span> <span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="o">,</span> <span class="k">left</span><span class="o">:</span><span class="m">0</span> <span class="n">and</span> <span class="n">so</span> <span class="n">these</span> <span class="n">can</span> <span class="n">be</span> <span class="k">left</span> <span class="n">out</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>           <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">force</span> <span class="m">0</span> <span class="k">height</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>         <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="k">width</span> <span class="n">of</span> <span class="n">parent</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>  <span class="k">padding-top</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>   <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">match</span> <span class="k">height</span> <span class="n">of</span> <span class="n">h1</span><span class="m">#title</span> <span class="k">above</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>  <span class="k">background</span><span class="o">:</span> <span class="sx">url(replacement-image.png)</span> <span class="k">top</span> <span class="k">left</span> <span class="k">no-repeat</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

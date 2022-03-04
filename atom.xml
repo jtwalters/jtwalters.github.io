@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Joel Walters]]></title>
+  <link href="http://jtwalters.github.io/atom.xml" rel="self"/>
+  <link href="http://jtwalters.github.io/"/>
+  <updated>2022-03-03T16:10:51-08:00</updated>
+  <id>http://jtwalters.github.io/</id>
+  <author>
+    <name><![CDATA[Joel Walters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mailcheck for Drupal]]></title>
+    <link href="http://jtwalters.github.io/blog/2014/07/mailcheck-for-drupal/"/>
+    <updated>2014-07-27T11:56:18-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2014/07/mailcheck-for-drupal</id>
+    <content type="html"><![CDATA[<p>I am now maintaining a Drupal module, <a href="https://www.drupal.org/project/mailcheck">mailcheck</a>.</p>
+
+<p>Here&rsquo;s a short description below. Check it out.</p>
+
+<blockquote><p>Get fast, client-side suggestions for mistyped email addresses.</p>
+
+<h2>What is it?</h2>
+
+<p>An integration of <a href="https://github.com/tableau-mkt/mailcheck">mailcheck.js</a> with forms in Drupal (supports user registration, webforms)</p>
+
+<h2>What&rsquo;s it do?</h2>
+
+<p>  Someone enters <code>user@gmaul.com</code>, mailcheck asks, Did you mean <code>user@gmail.com</code>?</p>
+
+<h3>Reduces Email Bounces</h3>
+
+<p>Kicksend <a href="http://blog.kicksend.com/how-we-decreased-sign-up-confirmation-email-bounces-by-50/">reports of a 50% decrease</a> in sign up confirmation email bounces. Try it out on <a href="http://kicksend.com/join"> Kicksend&rsquo;s join form</a>.</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Little Refresh]]></title>
+    <link href="http://jtwalters.github.io/blog/2014/02/a-little-refresh/"/>
+    <updated>2014-02-01T20:11:45-08:00</updated>
+    <id>http://jtwalters.github.io/blog/2014/02/a-little-refresh</id>
+    <content type="html"><![CDATA[<p>I updated my site with a few new things.</p>
+
+<ul>
+<li>Updated my About page with current skills, interests, etc.</li>
+<li>Updated my UW work experience
+
+<ul>
+<li>Added a screenshot and link to admit.washington.edu</li>
+</ul>
+</li>
+<li>Updated colors and typography! Yay. A bit cleaner.</li>
+<li>Added my GitHub repos on the sidebar of the homepage. Neat.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A 12.5 Megapixel Display]]></title>
+    <link href="http://jtwalters.github.io/blog/2013/06/a-12-dot-5-megapixel-display/"/>
+    <updated>2013-06-13T15:47:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2013/06/a-12-dot-5-megapixel-display</id>
+    <content type="html"><![CDATA[<p>Can Windows 8 plus a pair of Nvidia Quadro 450 graphics cards really give me a 12.5 Megapixel display? It sounds too good to be true. How many pixels is too many pixels? All good questions.</p>
+
+<p>I will soon be exploring the amazing realm of large-scale touch screens. Windows 8, I hope you are a good choice.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My Password Generator, Based on a Comic]]></title>
+    <link href="http://jtwalters.github.io/blog/2013/02/my-password-generator-based-off-an-xkcd-comic/"/>
+    <updated>2013-02-08T15:26:00-08:00</updated>
+    <id>http://jtwalters.github.io/blog/2013/02/my-password-generator-based-off-an-xkcd-comic</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve recently published my online, javascript-powered password generator at <a href="http://jpgen.joelwalters.com">jpgen.joelwalters.com</a>.</p>
+
+<p>It&rsquo;s also published as a <a href="https://chrome.google.com/webstore/detail/joels-password-generator/edfbemblhgkgbekgghkcjcefohkchjge?hl=en-US">Google Chrome extension</a>.</p>
+
+<p>Use it—because it&rsquo;s awesome sauce.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PosteRazor ... Posters From Letter Sized Sheets]]></title>
+    <link href="http://jtwalters.github.io/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets/"/>
+    <updated>2013-01-09T18:42:00-08:00</updated>
+    <id>http://jtwalters.github.io/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets</id>
+    <content type="html"><![CDATA[<p><a href="http://posterazor.sourceforge.net/">PosteRazor</a> must be the greatest thing since sliced bread.</p>
+
+<blockquote><p>The PosteRazor cuts a raster image into pieces which can afterwards be printed out and assembled to a poster.</p><footer><strong>posterazor homepage</strong> <cite>posterazor.sourceforge.net</cite></footer></blockquote>
+
+
+<p>Yep, that&rsquo;s right, you can assemble a poster from copy paper on the cheap. But &ldquo;how can I avoid the ugliness of scotch tape and paper curl?&rdquo; you might ask. Good question!</p>
+
+<p>I found <a href="http://www.onlinelabels.com/OL813.htm">8.5x14 legal sized sheets with removable adhesive backing</a> from onlinelabels.com which would let you slap your paper right onto the painted wall surface — no tape, no curling. Woohoo!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[More Mobile Navigation Options]]></title>
+    <link href="http://jtwalters.github.io/blog/2012/06/more-mobile-navigation-options/"/>
+    <updated>2012-06-09T14:41:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2012/06/more-mobile-navigation-options</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been following along mobile navigation options on the twitters and
+came across some interesting approaches to solving this UX issue.</p>
+
+<h2><a href="http://www.netmagazine.com/tutorials/build-smart-mobile-navigation-without-hacks">Smart mobile navigation without hacks</a></h2>
+
+<p>This option makes use of the :target CSS pseudo-class selector, which
+lets you style elements referenced by the URL <code>#fragment</code>.</p>
+
+<p>It&rsquo;s a CSS-only solution that works on most modern browsers (Chrome, Firefox, Safari, IE 9+), however, it is currently incompatible with Opera Mobile since the :target CSS doesn&rsquo;t seem to trigger a page update. Doh!</p>
+
+<p>Cool, huh? Bravo to <a href="http://aaron-gustafson.com/">Aaron Gustafson</a> for
+coming up with the solution. Hopefully an Opera Mobile workaround will
+be available soon.</p>
+
+<h2><a href="http://www.456bereastreet.com/archive/201206/an_alternative_to_select_elements_as_navigation_in_narrow_viewports/">An alternative to select elements as navigation in narrow viewports</a></h2>
+
+<p>Instead of using a select drop-down on narrow screens, why not recreate
+the experience with toggleable blocks that you style your way?</p>
+
+<p>Interesting alternative to using the somewhat awkward select drop-down.
+Maybe I&rsquo;ll give it a shot.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mobile Friendly Responsive Menus]]></title>
+    <link href="http://jtwalters.github.io/blog/2012/05/mobile-friendly-responsive-menus/"/>
+    <updated>2012-05-20T10:45:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2012/05/mobile-friendly-responsive-menus</id>
+    <content type="html"><![CDATA[<p>As Brad Frost points out in his <a href="http://bradfrostweb.com/blog/web/responsive-nav-patterns/">responsive navigation patterns article</a>, small screens make designing a usable menu
+difficult.</p>
+
+<p>For a large site with lots of menu items (e.g. a resource site) how do
+we cram it all into a usable menu with a good mobile UX?</p>
+
+<p>It&rsquo;s tempting to just take the <a href="https://github.com/mattkersley/Responsive-Menu">&ldquo;easy route&rdquo; to mobile menus</a> and use native select
+(dropdown) menus. While it&rsquo;s snappy and usable, it&rsquo;s a little
+disorienting as it removes the user from the look and feel of your
+website.</p>
+
+<p>I came across this <a href="http://www.dynamicdrive.com/dynamicindex1/drilldownmenu.htm">drill down menu from 2009</a> and think it might work well on a small screen. I haven&rsquo;t tried it out yet, but nothing else looks promising at the moment.</p>
+
+<p>Thoughts?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lightbox Woes]]></title>
+    <link href="http://jtwalters.github.io/blog/2012/05/lightbox-woes/"/>
+    <updated>2012-05-14T08:55:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2012/05/lightbox-woes</id>
+    <content type="html"><![CDATA[<p>After updating to the latest Octopress source and styles, colorbox was
+severely broken due to some uncommon styles used on the body element in
+the default Octopress theme.</p>
+
+<p>I finally ended up replacing colorbox with <a href="http://getlightly.com/">lightly</a> (5KB source). While it doesn&rsquo;t have many features, it did seemingly solve my problems.</p>
+
+<p>Apologies in advance if you&rsquo;re viewing this site on IE &lt; 8.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Breaking the Silence]]></title>
+    <link href="http://jtwalters.github.io/blog/2012/05/breaking-the-silence/"/>
+    <updated>2012-05-09T09:30:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2012/05/breaking-the-silence</id>
+    <content type="html"><![CDATA[<p>I should update my blog more often. Shame on me. In order to make this
+dream a reality, I&rsquo;m going to attempt micro-ish posts to lessen the
+burden of writing a full fledged post.</p>
+
+<p>Topic of the day: I love Trader Joe&rsquo;s <a href="http://www.traderjoes.com/fearless-flyer/article.asp?article_id=156">Breakfast Burritos</a>.</p>
+
+<p>One tiny addition: my twitter feed is on the sidebar now. Exciting.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Flickr Photos]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/11/flickr-photos/"/>
+    <updated>2011-11-20T12:04:00-08:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/11/flickr-photos</id>
+    <content type="html"><![CDATA[<p>With the help of a <a href="http://www.gethifi.com/blog/a-jquery-flickr-feed-plugin">jquery flickr feed plugin</a> and <a href="http://jacklmoore.com/colorbox/">colorbox</a>, I now have a <a href="http://jtwalters.github.io/Photos">photos</a> page which features the most recent photos from my flickr account. Unfortunately, this requires javascript to view the images. How about content for non-javascript enabled browsers? Well, you&rsquo;ll just have to follow the link to my <a href="http://flickr.com/photos/jtw84">flickr photostream</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Now Using Octopress as Blogging Framework]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/11/now-using-octopress-as-blogging-framework/"/>
+    <updated>2011-11-11T20:09:00-08:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/11/now-using-octopress-as-blogging-framework</id>
+    <content type="html"><![CDATA[<p>Why use Octopress? Because it&rsquo;s a static site generator with a mobile friendly theme, lots of goodies, and easy deployment. It has beautiful Solarized code blocks and easy theming with Compass and SASS. It&rsquo;s powered by text files and since the site is static, I don&rsquo;t have to worry about security updates!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac OS Lion Upgrade — Login Issue]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/07/mac-os-lion-upgrade-login-issue/"/>
+    <updated>2011-07-20T18:54:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/07/mac-os-lion-upgrade-login-issue</id>
+    <content type="html"><![CDATA[<p>After upgrading my Mac OS 10.6.8 to 10.7 today, my user account didn&rsquo;t show up on the login screen, and attempting to login with my username and password resulted in my login screen hanging indefinitely.</p>
+
+<h2>Fixing My Screwed Up OS X 10.6 Account After 10.7 Upgrade</h2>
+
+<p>Here&rsquo;s what I did to fix my account (in the present tense)&hellip;</p>
+
+<ul>
+<li>Reboot and hold apple (command) R to enter recovery mode</li>
+<li>Open Terminal from the Utilities menu</li>
+<li>Run &lsquo;resetpassword&rsquo; to open the Reset Password utility</li>
+<li>Select your harddrive, then select the root user from the users menu</li>
+<li>Reset the root password, and also reset the ACL</li>
+<li>Reboot, then login as root</li>
+<li>Once logged in as root (System Administrator), you can go to System Preferences, User Accounts, and then add your old 10.6 username, choosing to reuse the existing directory. This may take a few minutes.</li>
+<li>Reboot once more, and you should be able to login as your old 10.6 username.</li>
+</ul>
+
+
+<p>I hope this helps someone that had the same problem! Let me know if this works for you.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Secure Remote Backup Using Duplicity]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/05/secure-remote-backup-using-duplicity/"/>
+    <updated>2011-05-15T18:53:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/05/secure-remote-backup-using-duplicity</id>
+    <content type="html"><![CDATA[<p><a href="http://duplicity.nongnu.org/">Duplicity</a> is a robust, easy to use, backup and restore utility which uses <a href="http://www.gnupg.org/">gpg</a> for encryption. Its flexibility allows backing up with <a href="http://aws.amazon.com/s3/">Amazon&rsquo;s S3 service</a>, a highly durable storage infrastructure designed for mission-critical data storage. In this article, I&rsquo;ll explain how to use Duplicity to create secure, incremental, remote backups with Amazon&rsquo;s S3 service.</p>
+
+<h2>Duplicity in a Nutshell</h2>
+
+<p>Duplicity&hellip;</p>
+
+<ul>
+<li>is an <strong>easy to use</strong> backup and restore command line utility</li>
+<li><strong>supports encryption and signing</strong> of archives using gpg</li>
+<li>is <strong>bandwidth and space efficient</strong>
+
+<ul>
+<li>uses <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> to transfer only the modified parts of files, with support for binary files</li>
+</ul>
+</li>
+<li>uses a <strong>standard file format</strong> (gnu tar and rdiff incrementals)</li>
+<li><strong>supports multiple protocols</strong> including local storage, scp/ssh, ftp, rsync, and Amazon S3</li>
+</ul>
+
+
+<p>See <a href="http://duplicity.nongnu.org/features.html">full list of features</a> and <a href="http://duplicity.nongnu.org/docs.html">documentation</a></p>
+
+<h2>Getting Started With Duplicity—Quick Guide and Examples</h2>
+
+<h3>Downloading and Installing Duplicity</h3>
+
+<p><a href="http://duplicity.nongnu.org/">Duplicity</a> has several requirements so you may want to use a package manager to install.</p>
+
+<h4>MacPorts Installation:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo port install duplicity</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Ubuntu packages:</h4>
+
+<p>You should install the <code>duplicity</code> package along with <code>python-boto</code> for S3 support.</p>
+
+<h3>Trying Out Duplicity</h3>
+
+<p>You can try out a simple Duplicity backup locally by running:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>duplicity &lt;source-directory> file://&lt;destination-directory></span></code></pre></td></tr></table></div></figure>
+
+
+<p>See <a href="http://duplicity.nongnu.org/docs.html">more examples</a>.</p>
+
+<p>After you&rsquo;ve succesfully created your first backup, you should see some backup statistics including the total count and file size of new or modified files.</p>
+
+<h3>Creating a GPG Key For Encryption</h3>
+
+<p>To encrypt your backup, you will first need to create a gpg key. You can create a key for use only with Duplicity, which will protect your files from being viewed in transit or in remote storage (e.g. Amazon&rsquo;s servers).</p>
+
+<p>Run <code>gpg --gen-key</code> in your shell.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#~ gpg --gen-key
+</span><span class='line'>gpg (GnuPG) 1.4.11; Copyright (C) 2010 Free Software Foundation, Inc.
+</span><span class='line'>This is free software: you are free to change and redistribute it.
+</span><span class='line'>There is NO WARRANTY, to the extent permitted by law.
+</span><span class='line'>
+</span><span class='line'>Please select what kind of key you want:
+</span><span class='line'>   (1) RSA and RSA (default)
+</span><span class='line'>   (2) DSA and Elgamal
+</span><span class='line'>   (3) DSA (sign only)
+</span><span class='line'>   (4) RSA (sign only)
+</span><span class='line'>Your selection?</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Choose kind of key, keysize, and expiration. I used the defaults.</li>
+<li>Enter a &ldquo;Real Name&rdquo; (e.g. Duplicity Backup), email address and comment, then <code>O(kay)</code> to continue with key generation.</li>
+<li>Enter a passphrase to protect your private key (this should be sufficiently long and difficult to guess). A passphrase may contain spaces.</li>
+<li>At this point, the key will be generated. On a remote host, you may have trouble generating enough random entropy. In this case, you might want to run some <code>find</code> commands or something to generate random data. It can take a minute or so for this step to complete.</li>
+<li>After key generation, note the key identifier for use with Duplicity.
+
+<ul>
+<li>The key identifier is an 8-digit hexadecimal number (e.g. D7E2BEC8). It&rsquo;s displayed on a line beginning with <code>pub</code>, after the <code>/</code>.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Signing Up With Amazon S3</h3>
+
+<p><a href="http://aws.amazon.com/s3/">Amazon S3</a> is a fast and reliable storage system which can be used along with Duplicity. It is relatively inexpensive, costing $0.10 per GB uploaded, $0.15 per GB downloaded, and $0.14 per GB-month storage. It&rsquo;s designed to provide 99.999999999% durability and 99.99% availability (of objects over a given year).</p>
+
+<p><a href="http://aws.amazon.com/">Sign up for Amazon Web Services</a> (AWS) and Simple Storage Service (S3). You&rsquo;ll need to use your S3 security credentials with Duplicity, so be sure to copy down your <strong>Access Key ID</strong> and <strong>Secret Access Key</strong>.</p>
+
+<h3>Creating a Duplicity Backup Script</h3>
+
+<p>You can use this bash script template to get started. Use your Amazon S3 security credentials, and the gpg passphrase and key identifier from the section above.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="nb">ulimit</span> -n 1024 <span class="c"># I needed this to increase the maximum number of open files on OS X 10.5</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your Amazon S3 security credentials</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your gpg passphrase (needed to sign files with duplicity)</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your gpg key identifier (8-digit hexadecimal number)</span>
+</span><span class='line'><span class="nv">GPG_KEY</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># backup source directory. if you set this to / (root), be sure to exclude /tmp, /proc, /dev, and probably /sys too</span>
+</span><span class='line'><span class="nv">SOURCE</span><span class="o">=</span><span class="s2">&quot;/Users/Example&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># destination URL (Amazon S3 bucket)</span>
+</span><span class='line'><span class="c"># Note: bucket need not exist but does need to be unique among all Amazon S3 users.</span>
+</span><span class='line'><span class="nv">DEST</span><span class="o">=</span><span class="s2">&quot;s3+http://your_unique_bucket_name&quot;</span>
+</span><span class='line'>
+</span><span class='line'>duplicity <span class="se">\</span>
+</span><span class='line'>  --verbosity 4 <span class="se">\ </span><span class="c"># default verbosity. use 5 to see added/changed files, 0 for silence</span>
+</span><span class='line'>  --full-if-older-than 30D <span class="se">\ </span><span class="c"># option to create a new full backup after X days</span>
+</span><span class='line'>  --encrypt-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  --sign-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  --s3-use-new-style <span class="se">\</span>
+</span><span class='line'>  --s3-use-rrs <span class="se">\ </span><span class="c"># reduced redundancy storage option. use for less important backups. provides cheaper rates.</span>
+</span><span class='line'>  --exclude<span class="o">=</span>/Users/Example/Junk <span class="se">\ </span><span class="c"># exclude a path (uses shell globbing)</span>
+</span><span class='line'>  --exclude<span class="o">=</span>/Users/Example/Downloads <span class="se">\ </span><span class="c"># supports multiple exclude switches</span>
+</span><span class='line'>  <span class="k">${</span><span class="nv">SOURCE</span><span class="k">}</span> <span class="k">${</span><span class="nv">DEST</span><span class="k">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># reset the environment variables</span>
+</span><span class='line'><span class="nb">unset </span>AWS_ACCESS_KEY_ID
+</span><span class='line'><span class="nb">unset </span>AWS_SECRET_ACCESS_KEY
+</span><span class='line'><span class="nb">unset </span>PASSPHRASE
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Automating Your Duplicity Backup Script With Cron</h3>
+
+<p>Edit your crontab:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>crontab -e</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I perform a daily incremental backup early in the morning. My crontab entry looks like:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>0 6 * * * bash -l -c 'duplicity-backup'</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Note:</strong> This would run the wrapper script daily at 6:00 AM. I use <code>bash -l -c &lt;command&gt;</code> to load up an environment very similar to an interactive shell session, so my PATH is set properly. The -c option tells bash a command follows. The -l option tells bash to load the entire environment.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Cron">More about cron</a>.</p>
+
+<h3>Creating a Duplicity Restore Script</h3>
+
+<p>Below is an example restore wrapper script I use.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># requires argument: relative (not absolute) path of files to restore (e.g. Documents)</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$1&quot;</span> <span class="o">]</span>
+</span><span class='line'><span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nb">echo</span> <span class="s2">&quot;Need restore source path argument&quot;</span>
+</span><span class='line'>  <span class="nb">exit</span>
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">ulimit</span> -n 1024 <span class="c"># I needed this to increase the maximum number of open files on OS X 10.5</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your Amazon S3 security credentials</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your gpg passphrase (needed to sign files with duplicity)</span>
+</span><span class='line'><span class="nb">export </span><span class="nv">PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># your gpg key identifier (8-digit hexadecimal number)</span>
+</span><span class='line'><span class="nv">GPG_KEY</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># source URL (Amazon S3 bucket holding your Duplicity backup)</span>
+</span><span class='line'><span class="nv">SOURCE_URL</span><span class="o">=</span><span class="s2">&quot;s3+http://bucket_name&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># destination directory</span>
+</span><span class='line'><span class="nv">DEST_DIR</span><span class="o">=</span><span class="s2">&quot;/Users/example/restore&quot;</span>
+</span><span class='line'>
+</span><span class='line'>mkdir -p <span class="nv">$DEST_DIR</span> <span class="c"># create the destination directory if it doesn&#39;t exist</span>
+</span><span class='line'>
+</span><span class='line'>duplicity <span class="se">\</span>
+</span><span class='line'>  --encrypt-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  --sign-key<span class="o">=</span><span class="k">${</span><span class="nv">GPG_KEY</span><span class="k">}</span> <span class="se">\</span>
+</span><span class='line'>  --file-to-restore <span class="s2">&quot;$1&quot;</span> <span class="se">\</span>
+</span><span class='line'>  <span class="k">${</span><span class="nv">SOURCE_URL</span><span class="k">}</span> <span class="k">${</span><span class="nv">DEST_DIR</span><span class="k">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># reset the environment variables</span>
+</span><span class='line'><span class="nb">unset </span>AWS_ACCESS_KEY_ID
+</span><span class='line'><span class="nb">unset </span>AWS_SECRET_ACCESS_KEY
+</span><span class='line'><span class="nb">unset </span>PASSPHRASE
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Conclusion</h3>
+
+<p>That should get you started with creating your own secure, incremental, remote backups. Please reply if you&rsquo;ve tried the examples above and report your success or failure. Thanks!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS Image Replacement]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/05/css-image-replacement/"/>
+    <updated>2011-05-11T18:53:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/05/css-image-replacement</id>
+    <content type="html"><![CDATA[<p>If you aren&rsquo;t familiar with the CSS jargon &ldquo;image replacement&rdquo;, it is essentially a way to replace an <code>h1</code> heading—or other text-based content—with an image or company logo. This way you can have a fancy graphic instead of plain text, and maintain accessibility and SEO benefits.</p>
+
+<p>There are many <a href="http://css-tricks.com/css-image-replacement/">CSS image replacement techniques</a> out there. Notably, the FIR or &ldquo;Fahrner Image Replacement&rdquo; technique is among the most popular. However, this method is <a href="http://www.alistapart.com/articles/fir/">not deemed accessible</a>.</p>
+
+<p>The goal of image replacement techniques is to be compatible with the most possible browser (user agent) configurations and to be accessible. This means we want to support browsers with a 1% or greater market share in various configurations (e.g. CSS on/off, images on/off), as well as screen readers and other assistive technologies.</p>
+
+<p>My <a href="http://alicious.com/2009/new-css-image-replacement-jir/">personal preference for image replacement</a> involves using an <code>a</code> (anchor tag) inside an <code>h1</code> or other block element. It is called the &ldquo;LLJ&rdquo; method, and it should work on all major browsers, including IE6+.</p>
+
+<p>Below is the HTML/CSS to implement this technique. It&rsquo;s also hosted <a href="http://jsfiddle.net/jtwalters/gJAjY/1/">on jsfiddle</a>.</p>
+
+<p><strong>HTML:</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://example.com&quot;</span> <span class="na">title=</span><span class="s">&quot;example title&quot;</span><span class="nt">&gt;</span>Meaningful Text<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'><span class="nt">&lt;/h1&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>CSS:</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">h1</span><span class="nf">#title</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>  <span class="c">/* allows child element to be placed positioned wrt this one */</span>
+</span><span class='line'>  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>           <span class="c">/* adjust margin as needed */</span>
+</span><span class='line'>  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>          <span class="c">/* needed to counter the reset/default styles */</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>        <span class="c">/* height of replacement image */</span>
+</span><span class='line'>  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>    <span class="c">/* hide the text */</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">h1</span><span class="nf">#title</span> <span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>  <span class="c">/* defaults to top:0, left:0 and so these can be left out */</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>           <span class="c">/* force 0 height */</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>         <span class="c">/* width of parent */</span>
+</span><span class='line'>  <span class="k">padding-top</span><span class="o">:</span> <span class="m">50px</span><span class="p">;</span>   <span class="c">/* match height of h1#title above */</span>
+</span><span class='line'>  <span class="k">background</span><span class="o">:</span> <span class="sx">url(replacement-image.png)</span> <span class="k">top</span> <span class="k">left</span> <span class="k">no-repeat</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

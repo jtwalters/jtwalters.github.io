@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: photo | Joel Walters]]></title>
+  <link href="http://jtwalters.github.io/blog/categories/photo/atom.xml" rel="self"/>
+  <link href="http://jtwalters.github.io/"/>
+  <updated>2022-03-03T16:10:51-08:00</updated>
+  <id>http://jtwalters.github.io/</id>
+  <author>
+    <name><![CDATA[Joel Walters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Flickr Photos]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/11/flickr-photos/"/>
+    <updated>2011-11-20T12:04:00-08:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/11/flickr-photos</id>
+    <content type="html"><![CDATA[<p>With the help of a <a href="http://www.gethifi.com/blog/a-jquery-flickr-feed-plugin">jquery flickr feed plugin</a> and <a href="http://jacklmoore.com/colorbox/">colorbox</a>, I now have a <a href="/Photos">photos</a> page which features the most recent photos from my flickr account. Unfortunately, this requires javascript to view the images. How about content for non-javascript enabled browsers? Well, you&rsquo;ll just have to follow the link to my <a href="http://flickr.com/photos/jtw84">flickr photostream</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,7 @@
+RewriteEngine  on
+
+RewriteBase /
+
+RewriteRule ^About/?$ http://%{HTTP_HOST}/about/ [L,R=301]
+RewriteRule ^PortfolioWork/?$ http://%{HTTP_HOST}/work/ [L,R=301]
+RewriteRule ^Photos/?$ http://%{HTTP_HOST}/photos/ [L,R=301]

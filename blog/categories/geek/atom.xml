@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: geek | Joel Walters]]></title>
+  <link href="http://jtwalters.github.io/blog/categories/geek/atom.xml" rel="self"/>
+  <link href="http://jtwalters.github.io/"/>
+  <updated>2022-03-03T16:10:51-08:00</updated>
+  <id>http://jtwalters.github.io/</id>
+  <author>
+    <name><![CDATA[Joel Walters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My password generator, based on a comic]]></title>
+    <link href="http://jtwalters.github.io/blog/2013/02/my-password-generator-based-off-an-xkcd-comic/"/>
+    <updated>2013-02-08T15:26:00-08:00</updated>
+    <id>http://jtwalters.github.io/blog/2013/02/my-password-generator-based-off-an-xkcd-comic</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve recently published my online, javascript-powered password generator at <a href="http://jpgen.joelwalters.com">jpgen.joelwalters.com</a>.</p>
+
+<p>It&rsquo;s also published as a <a href="https://chrome.google.com/webstore/detail/joels-password-generator/edfbemblhgkgbekgghkcjcefohkchjge?hl=en-US">Google Chrome extension</a>.</p>
+
+<p>Use it—because it&rsquo;s awesome sauce.</p>
+]]></content>
+  </entry>
+  
+</feed>

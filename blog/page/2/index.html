@@ -9,7 +9,8 @@
   <meta name="author" content="Joel Walters">
 
   
-  <meta name="description" content="I am now maintaining a Drupal module, mailcheck. Here&rsquo;s a short description below. Check it out. Get fast, client-side suggestions for mistyped &hellip;">
+  <meta name="description" content="I&rsquo;ve been following along mobile navigation options on the twitters and
+came across some interesting approaches to solving this UX issue. Smart &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jtwalters.github.io">
+  <link rel="canonical" href="http://jtwalters.github.io/blog/page/2">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Joel Walters" type="application/atom+xml">
@@ -90,7 +91,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/07/mailcheck-for-drupal/">Mailcheck for Drupal</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/06/more-mobile-navigation-options/">More Mobile Navigation Options</a></h1>
     
     
       <p class="meta">
@@ -106,33 +107,37 @@
   
 
 
-<time datetime="2014-07-27T11:56:18-07:00" pubdate data-updated="true">Jul 27<span>th</span>, 2014</time>
+<time datetime="2012-06-09T14:41:00-07:00" pubdate data-updated="true">Jun 9<span>th</span>, 2012</time>
         
-           | <a href="/blog/2014/07/mailcheck-for-drupal/#disqus_thread"
-             data-disqus-identifier="http://jtwalters.github.io/blog/2014/07/mailcheck-for-drupal/">Comments</a>
+           | <a href="/blog/2012/06/more-mobile-navigation-options/#disqus_thread"
+             data-disqus-identifier="http://jtwalters.github.io/blog/2012/06/more-mobile-navigation-options/">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I am now maintaining a Drupal module, <a href="https://www.drupal.org/project/mailcheck">mailcheck</a>.</p>
+  <div class="entry-content"><p>I&rsquo;ve been following along mobile navigation options on the twitters and
+came across some interesting approaches to solving this UX issue.</p>
 
-<p>Here&rsquo;s a short description below. Check it out.</p>
+<h2><a href="http://www.netmagazine.com/tutorials/build-smart-mobile-navigation-without-hacks">Smart mobile navigation without hacks</a></h2>
 
-<blockquote><p>Get fast, client-side suggestions for mistyped email addresses.</p>
+<p>This option makes use of the :target CSS pseudo-class selector, which
+lets you style elements referenced by the URL <code>#fragment</code>.</p>
 
-<h2>What is it?</h2>
+<p>It&rsquo;s a CSS-only solution that works on most modern browsers (Chrome, Firefox, Safari, IE 9+), however, it is currently incompatible with Opera Mobile since the :target CSS doesn&rsquo;t seem to trigger a page update. Doh!</p>
 
-<p>An integration of <a href="https://github.com/tableau-mkt/mailcheck">mailcheck.js</a> with forms in Drupal (supports user registration, webforms)</p>
+<p>Cool, huh? Bravo to <a href="http://aaron-gustafson.com/">Aaron Gustafson</a> for
+coming up with the solution. Hopefully an Opera Mobile workaround will
+be available soon.</p>
 
-<h2>What&rsquo;s it do?</h2>
+<h2><a href="http://www.456bereastreet.com/archive/201206/an_alternative_to_select_elements_as_navigation_in_narrow_viewports/">An alternative to select elements as navigation in narrow viewports</a></h2>
 
-<p>  Someone enters <code>user@gmaul.com</code>, mailcheck asks, Did you mean <code>user@gmail.com</code>?</p>
+<p>Instead of using a select drop-down on narrow screens, why not recreate
+the experience with toggleable blocks that you style your way?</p>
 
-<h3>Reduces Email Bounces</h3>
-
-<p>Kicksend <a href="http://blog.kicksend.com/how-we-decreased-sign-up-confirmation-email-bounces-by-50/">reports of a 50% decrease</a> in sign up confirmation email bounces. Try it out on <a href="http://kicksend.com/join"> Kicksend&rsquo;s join form</a>.</p></blockquote>
+<p>Interesting alternative to using the somewhat awkward select drop-down.
+Maybe I&rsquo;ll give it a shot.</p>
 </div>
   
   
@@ -145,7 +150,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/a-little-refresh/">A Little Refresh</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/mobile-friendly-responsive-menus/">Mobile Friendly Responsive Menus</a></h1>
     
     
       <p class="meta">
@@ -161,30 +166,30 @@
   
 
 
-<time datetime="2014-02-01T20:11:45-08:00" pubdate data-updated="true">Feb 1<span>st</span>, 2014</time>
+<time datetime="2012-05-20T10:45:00-07:00" pubdate data-updated="true">May 20<span>th</span>, 2012</time>
         
-           | <a href="/blog/2014/02/a-little-refresh/#disqus_thread"
-             data-disqus-identifier="http://jtwalters.github.io/blog/2014/02/a-little-refresh/">Comments</a>
+           | <a href="/blog/2012/05/mobile-friendly-responsive-menus/#disqus_thread"
+             data-disqus-identifier="http://jtwalters.github.io/blog/2012/05/mobile-friendly-responsive-menus/">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I updated my site with a few new things.</p>
+  <div class="entry-content"><p>As Brad Frost points out in his <a href="http://bradfrostweb.com/blog/web/responsive-nav-patterns/">responsive navigation patterns article</a>, small screens make designing a usable menu
+difficult.</p>
 
-<ul>
-<li>Updated my About page with current skills, interests, etc.</li>
-<li>Updated my UW work experience
+<p>For a large site with lots of menu items (e.g. a resource site) how do
+we cram it all into a usable menu with a good mobile UX?</p>
 
-<ul>
-<li>Added a screenshot and link to admit.washington.edu</li>
-</ul>
-</li>
-<li>Updated colors and typography! Yay. A bit cleaner.</li>
-<li>Added my GitHub repos on the sidebar of the homepage. Neat.</li>
-</ul>
+<p>It&rsquo;s tempting to just take the <a href="https://github.com/mattkersley/Responsive-Menu">&ldquo;easy route&rdquo; to mobile menus</a> and use native select
+(dropdown) menus. While it&rsquo;s snappy and usable, it&rsquo;s a little
+disorienting as it removes the user from the look and feel of your
+website.</p>
 
+<p>I came across this <a href="http://www.dynamicdrive.com/dynamicindex1/drilldownmenu.htm">drill down menu from 2009</a> and think it might work well on a small screen. I haven&rsquo;t tried it out yet, but nothing else looks promising at the moment.</p>
+
+<p>Thoughts?</p>
 </div>
   
   
@@ -197,7 +202,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/06/a-12-dot-5-megapixel-display/">A 12.5 Megapixel Display</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/lightbox-woes/">Lightbox Woes</a></h1>
     
     
       <p class="meta">
@@ -213,19 +218,23 @@
   
 
 
-<time datetime="2013-06-13T15:47:00-07:00" pubdate data-updated="true">Jun 13<span>th</span>, 2013</time>
+<time datetime="2012-05-14T08:55:00-07:00" pubdate data-updated="true">May 14<span>th</span>, 2012</time>
         
-           | <a href="/blog/2013/06/a-12-dot-5-megapixel-display/#disqus_thread"
-             data-disqus-identifier="http://jtwalters.github.io/blog/2013/06/a-12-dot-5-megapixel-display/">Comments</a>
+           | <a href="/blog/2012/05/lightbox-woes/#disqus_thread"
+             data-disqus-identifier="http://jtwalters.github.io/blog/2012/05/lightbox-woes/">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Can Windows 8 plus a pair of Nvidia Quadro 450 graphics cards really give me a 12.5 Megapixel display? It sounds too good to be true. How many pixels is too many pixels? All good questions.</p>
+  <div class="entry-content"><p>After updating to the latest Octopress source and styles, colorbox was
+severely broken due to some uncommon styles used on the body element in
+the default Octopress theme.</p>
 
-<p>I will soon be exploring the amazing realm of large-scale touch screens. Windows 8, I hope you are a good choice.</p>
+<p>I finally ended up replacing colorbox with <a href="http://getlightly.com/">lightly</a> (5KB source). While it doesn&rsquo;t have many features, it did seemingly solve my problems.</p>
+
+<p>Apologies in advance if you&rsquo;re viewing this site on IE &lt; 8.</p>
 </div>
   
   
@@ -238,7 +247,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/02/my-password-generator-based-off-an-xkcd-comic/">My Password Generator, Based on a Comic</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/breaking-the-silence/">Breaking the Silence</a></h1>
     
     
       <p class="meta">
@@ -254,21 +263,23 @@
   
 
 
-<time datetime="2013-02-08T15:26:00-08:00" pubdate data-updated="true">Feb 8<span>th</span>, 2013</time>
+<time datetime="2012-05-09T09:30:00-07:00" pubdate data-updated="true">May 9<span>th</span>, 2012</time>
         
-           | <a href="/blog/2013/02/my-password-generator-based-off-an-xkcd-comic/#disqus_thread"
-             data-disqus-identifier="http://jtwalters.github.io/blog/2013/02/my-password-generator-based-off-an-xkcd-comic/">Comments</a>
+           | <a href="/blog/2012/05/breaking-the-silence/#disqus_thread"
+             data-disqus-identifier="http://jtwalters.github.io/blog/2012/05/breaking-the-silence/">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I&rsquo;ve recently published my online, javascript-powered password generator at <a href="http://jpgen.joelwalters.com">jpgen.joelwalters.com</a>.</p>
+  <div class="entry-content"><p>I should update my blog more often. Shame on me. In order to make this
+dream a reality, I&rsquo;m going to attempt micro-ish posts to lessen the
+burden of writing a full fledged post.</p>
 
-<p>It&rsquo;s also published as a <a href="https://chrome.google.com/webstore/detail/joels-password-generator/edfbemblhgkgbekgghkcjcefohkchjge?hl=en-US">Google Chrome extension</a>.</p>
+<p>Topic of the day: I love Trader Joe&rsquo;s <a href="http://www.traderjoes.com/fearless-flyer/article.asp?article_id=156">Breakfast Burritos</a>.</p>
 
-<p>Use it—because it&rsquo;s awesome sauce.</p>
+<p>One tiny addition: my twitter feed is on the sidebar now. Exciting.</p>
 </div>
   
   
@@ -281,7 +292,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets/">PosteRazor &#8230; Posters From Letter Sized Sheets</a></h1>
+      <h1 class="entry-title"><a href="/blog/2011/11/flickr-photos/">Flickr Photos</a></h1>
     
     
       <p class="meta">
@@ -297,24 +308,17 @@
   
 
 
-<time datetime="2013-01-09T18:42:00-08:00" pubdate data-updated="true">Jan 9<span>th</span>, 2013</time>
+<time datetime="2011-11-20T12:04:00-08:00" pubdate data-updated="true">Nov 20<span>th</span>, 2011</time>
         
-           | <a href="/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets/#disqus_thread"
-             data-disqus-identifier="http://jtwalters.github.io/blog/2013/01/posterazor-dot-dot-dot-posters-from-letter-sized-sheets/">Comments</a>
+           | <a href="/blog/2011/11/flickr-photos/#disqus_thread"
+             data-disqus-identifier="http://jtwalters.github.io/blog/2011/11/flickr-photos/">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://posterazor.sourceforge.net/">PosteRazor</a> must be the greatest thing since sliced bread.</p>
-
-<blockquote><p>The PosteRazor cuts a raster image into pieces which can afterwards be printed out and assembled to a poster.</p><footer><strong>posterazor homepage</strong> <cite>posterazor.sourceforge.net</cite></footer></blockquote>
-
-
-<p>Yep, that&rsquo;s right, you can assemble a poster from copy paper on the cheap. But &ldquo;how can I avoid the ugliness of scotch tape and paper curl?&rdquo; you might ask. Good question!</p>
-
-<p>I found <a href="http://www.onlinelabels.com/OL813.htm">8.5x14 legal sized sheets with removable adhesive backing</a> from onlinelabels.com which would let you slap your paper right onto the painted wall surface — no tape, no curling. Woohoo!</p>
+  <div class="entry-content"><p>With the help of a <a href="http://www.gethifi.com/blog/a-jquery-flickr-feed-plugin">jquery flickr feed plugin</a> and <a href="http://jacklmoore.com/colorbox/">colorbox</a>, I now have a <a href="/Photos">photos</a> page which features the most recent photos from my flickr account. Unfortunately, this requires javascript to view the images. How about content for non-javascript enabled browsers? Well, you&rsquo;ll just have to follow the link to my <a href="http://flickr.com/photos/jtw84">flickr photostream</a>.</p>
 </div>
   
   
@@ -324,9 +328,11 @@
   
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
     
   </div>
 </div>

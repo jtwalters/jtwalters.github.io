@@ -1,0 +1,32 @@
+/* Lightly Styles
+----------------------------------------------------------------------*/
+
+#lightly-overlay {
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    left: 0;
+    top: 0;
+}
+
+#lightly-overlay.animate {
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-ms-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+}
+
+#lightly-loading {
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	height: 40px;
+	width: 40px;
+	z-index: 100;
+	background:transparent url(../images/loading.png) no-repeat;
+}

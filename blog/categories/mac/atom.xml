@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mac | Joel Walters]]></title>
+  <link href="http://jtwalters.github.io/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://jtwalters.github.io/"/>
+  <updated>2022-03-03T16:10:51-08:00</updated>
+  <id>http://jtwalters.github.io/</id>
+  <author>
+    <name><![CDATA[Joel Walters]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mac OS Lion Upgrade — Login Issue]]></title>
+    <link href="http://jtwalters.github.io/blog/2011/07/mac-os-lion-upgrade-login-issue/"/>
+    <updated>2011-07-20T18:54:00-07:00</updated>
+    <id>http://jtwalters.github.io/blog/2011/07/mac-os-lion-upgrade-login-issue</id>
+    <content type="html"><![CDATA[<p>After upgrading my Mac OS 10.6.8 to 10.7 today, my user account didn&rsquo;t show up on the login screen, and attempting to login with my username and password resulted in my login screen hanging indefinitely.</p>
+
+<h2>Fixing My Screwed Up OS X 10.6 Account After 10.7 Upgrade</h2>
+
+<p>Here&rsquo;s what I did to fix my account (in the present tense)&hellip;</p>
+
+<ul>
+<li>Reboot and hold apple (command) R to enter recovery mode</li>
+<li>Open Terminal from the Utilities menu</li>
+<li>Run &lsquo;resetpassword&rsquo; to open the Reset Password utility</li>
+<li>Select your harddrive, then select the root user from the users menu</li>
+<li>Reset the root password, and also reset the ACL</li>
+<li>Reboot, then login as root</li>
+<li>Once logged in as root (System Administrator), you can go to System Preferences, User Accounts, and then add your old 10.6 username, choosing to reuse the existing directory. This may take a few minutes.</li>
+<li>Reboot once more, and you should be able to login as your old 10.6 username.</li>
+</ul>
+
+
+<p>I hope this helps someone that had the same problem! Let me know if this works for you.</p>
+]]></content>
+  </entry>
+  
+</feed>
