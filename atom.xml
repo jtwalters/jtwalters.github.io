@@ -4,7 +4,7 @@
   <title><![CDATA[Joel Walters]]></title>
   <link href="http://jtwalters.github.io/atom.xml" rel="self"/>
   <link href="http://jtwalters.github.io/"/>
-  <updated>2022-03-04T09:30:40-08:00</updated>
+  <updated>2022-03-04T12:26:37-08:00</updated>
   <id>http://jtwalters.github.io/</id>
   <author>
     <name><![CDATA[Joel Walters]]></name>
@@ -14,11 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[8 Years Later — Now on Github Pages]]></title>
+    <title type="html"><![CDATA[10+ Years Later — Now on Github Pages]]></title>
     <link href="http://jtwalters.github.io/blog/2022/03/now-on-github-pages/"/>
     <updated>2022-03-03T16:24:37-08:00</updated>
     <id>http://jtwalters.github.io/blog/2022/03/now-on-github-pages</id>
-    <content type="html"><![CDATA[<p>Well, my website survived an incredible 8 years on DigitalOcean.com, but, turns out,
+    <content type="html"><![CDATA[<p>Well, my website survived an incredible 10+ years on DigitalOcean.com, but, turns out,
 there&rsquo;s cheaper alternatives (Github Pages).</p>
 
 <p>I should really update my site more often. :D</p>
